@@ -5,7 +5,7 @@
    </p>
    <br>
 
-   <h1>
+   <h1 align="center">
      Automated Reproducibility and <br>Testing Environment for Licensed Software
    </h1>
 
