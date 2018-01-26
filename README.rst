@@ -37,3 +37,5 @@ is required to ensure stability, integrity, and cross-platform compatibility.
 The full documentation is available `here <https://opencobra.github.io/artenolis>`_.
 
 .. |br| raw:: html
+
+   <br>
