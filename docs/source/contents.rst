@@ -5,10 +5,9 @@ ARTENOLIS
    :maxdepth: 2
 
    Home <index>
+   getstarted
    setup
    configurations
    getstarted
-   projects
-   cite
-   contributors
    funding
+   acronyms
