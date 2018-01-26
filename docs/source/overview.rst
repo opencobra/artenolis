@@ -1,5 +1,5 @@
-Setup
-=====
+Overview
+========
 
 .. image:: _static/img/setup.png
    :width: 750 px
