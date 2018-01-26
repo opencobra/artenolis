@@ -1,0 +1,13 @@
+language: bash
+
+script:
+    # set the environment variable CURRENT_DIR
+    - CURRENT_DIR=`pwd`
+
+    # change to the current directory
+    - cd $CURRENT_DIR
+
+after_success:
+    - export PATH="/home/sbg-jenkins/.local/bin":$PATH;
+      pip install --upgrade --user -r docs/requirements.txt;
+      python -c "from documenter.deploy import Documentation; doc = Documentation('github.com/opencobra/artenolis', ci='jenkins'); doc.deploy()";
