@@ -5,8 +5,9 @@
    </p>
    <br>
 
-Automated Reproducibility and |br| Testing Environment for Licensed Software
-----------------------------------------------------------------------------
+   <h1>
+     Automated Reproducibility and <br>Testing Environment for Licensed Software
+   </h1>
 
 .. begin-intro-marker
 
