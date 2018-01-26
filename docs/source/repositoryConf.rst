@@ -7,15 +7,15 @@ Repository structure
 The test suite is located in `/test`, while the source files of the code base are
 located in the `/src` directory. A common minimial repository structure is given as:
 
-=============  =======================================================
- Directory      Purpose
-=============  =======================================================
-/.artenolis     Directory with continuous integration bash-scripts
-/src            Directory with code source files
-/test           Directory with test files and testAll.m
-artenolis.yml   YAML trigger script
-codecov.yml     YAML script for code coverage report
-=============  =======================================================
+===============  =======================================================
+ Directory        Purpose
+===============  =======================================================
+**.artenolis**    Directory with continuous integration bash-scripts
+**src**           Directory with code source files
+**test**          Directory with test files and testAll.m
+artenolis.yml     YAML trigger script
+codecov.yml       YAML script for code coverage report
+===============  =======================================================
 
 Development model
 ------------------
