@@ -5,7 +5,6 @@
    </p>
    <br>
 
-
 Automated Reproducibility and |br| Testing Environment for Licensed Software
 ----------------------------------------------------------------------------
 
