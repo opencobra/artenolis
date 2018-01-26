@@ -20,5 +20,5 @@ Another good practice is to configure a job for testing purposes
 (e.g., a job that only builds a specific branch) before making any production changes on critical jobs (i.e., the `-branches` jobs).
 
 Each job can either succeed or fail. The build stability of each job and build trend is monitored and can be retrieved from
-prince.lcsb.uni.lu/jenkins/job/<jobName>/buildTime-Trend, where `<jobName>` is the name of a job.
+`artenolis.lcsb.uni.lu/job/<jobName>/buildTime-Trend`, where `<jobName>` is the name of a job.
 
