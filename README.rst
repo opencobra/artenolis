@@ -1,3 +1,7 @@
+<p align="center">
+  <img class="readme_logo" src="docs/source/_static/img/logo_artenolis.png" height="160px"/>
+</p>
+
 ARTENOLIS: Automated Reproducibility and TestingEnvironment for Licensed Software
 ---------------------------------------------------------------------------------
 
