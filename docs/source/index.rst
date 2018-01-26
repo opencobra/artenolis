@@ -18,7 +18,7 @@ Automated Reproducibility and |br| Testing Environment for Licensed Software
     </style>
 
     <div class="alert alert-info" align="center">
-        View ARTENOLIS <strong>source code</strong> on <a href="https://github.com/opencobra/cobratoolbox/"><img src="https://prince.lcsb.uni.lu/img/logos/github.png" style="height: 40px !important;"></a>.
+        View ARTENOLIS <strong>source code</strong> on <a href="https://github.com/opencobra/artenolis/"><img src="https://prince.lcsb.uni.lu/img/logos/github.png" style="height: 40px !important;"></a>.
     </div>
 
 Automatically testing changes to code is an essential feature of continuous
