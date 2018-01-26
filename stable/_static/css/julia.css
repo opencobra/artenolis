@@ -144,3 +144,8 @@ input[type="number"], input[type="search"], input[type="tel"], input[type="color
 .wy-menu-vertical a{
     color: #404040;
 }
+
+.codeblock, pre.literal-block, .rst-content .literal-block,
+.rst-content pre.literal-block, div[class^="highlight"] {
+    border: none;
+}
