@@ -8,5 +8,6 @@ ARTENOLIS
    getstarted
    setup
    configurations
+   projects
    funding
    acronyms
