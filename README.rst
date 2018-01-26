@@ -1,10 +1,11 @@
 .. raw:: html
     
-    <p align="center">
-        <img class="readme_logo" src="docs/source/_static/img/logo_artenolis.png" height="160px"/>
-    </p>
+   <p align="center">
+       <img class="readme_logo" src="docs/source/_static/img/logo_artenolis.png" height="160px"/>
+   </p>
+   <br>
 
-ARTENOLIS: Automated Reproducibility and TestingEnvironment for Licensed Software
----------------------------------------------------------------------------------
+Automated Reproducibility and TestingEnvironment for Licensed Software
+----------------------------------------------------------------------
 
 The full documentation is available `here <https://opencobra.github.io/artenolis>`_.
