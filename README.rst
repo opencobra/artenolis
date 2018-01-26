@@ -7,7 +7,8 @@
 
 
 
-Automated Reproducibility and |br| Testing Environment for Licensed Software
+Automated Reproducibility and |br|
+Testing Environment for Licensed Software
 ----------------------------------------------------------------------------
 
 The full documentation is available `here <https://opencobra.github.io/artenolis>`_.
