@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
@@ -9,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; ARTENOLIS</title>
+  <title>Overview &mdash; ARTENOLIS</title>
   
 
   
@@ -34,9 +33,12 @@
 
   
         <link rel="index" title="Index"
-              href="#"/>
+              href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="ARTENOLIS" href="index.html"/> 
+    <link rel="top" title="ARTENOLIS" href="index.html"/>
+        <link rel="up" title="Setup" href="setup.html"/>
+        <link rel="next" title="Architecture" href="architecture.html"/>
+        <link rel="prev" title="Setup" href="setup.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -82,10 +84,14 @@
 
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getstarted.html">How to get started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="setup.html">Setup</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="configurations.html">Configurations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getstarted.html">How to get started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="funding.html">Funding</a></li>
@@ -133,7 +139,9 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Index</li>
+          <li><a href="setup.html">Setup</a> &raquo;</li>
+        
+      <li>Overview</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -150,11 +158,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/setup.png"><img alt="ARTENOLIS setup" class="align-center" src="_images/setup.png" style="width: 750px;" /></a>
+<p>The core of the infrastructure is Jenkins, the open source automation server
+for continuous delivery. The continuous integration infrastructure consists of
+a cascade of 3 distinct layers and is a master-slave architecture: a public
+interaction layer (top), the Jenkins server layer, and the layer with 4
+computing nodes behind a firewall, each running a different operating system. A
+change made in a public repository on GitHub (github.com) is seen by the
+Jenkins server (master), which in turn triggers multiple builds on the 4
+computing nodes simultaneously (slaves).</p>
 </div>
 
 
@@ -164,6 +178,15 @@
            </div>
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="setup.html" class="btn btn-neutral" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

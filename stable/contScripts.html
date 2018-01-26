@@ -37,7 +37,7 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="ARTENOLIS" href="index.html"/>
         <link rel="up" title="Configurations" href="configurations.html"/>
-        <link rel="next" title="How to get started" href="getstarted.html"/>
+        <link rel="next" title="Funding" href="funding.html"/>
         <link rel="prev" title="Job definitions" href="jobDefinitions.html"/> 
 
   
@@ -86,15 +86,21 @@
           
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getstarted.html">How to get started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="configurations.html">Configurations</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="repositoryConf.html">Repository configurations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="jobDefinitions.html">Job definitions</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Continuous integration scripts</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Continuous integration scripts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-on-windows">Setup on Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-runtests-sh-script">The <cite>runtests.sh</cite> script</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="getstarted.html">How to get started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="funding.html">Funding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Acronyms</a></li>
 </ul>
 
           
@@ -161,7 +167,7 @@
 <h1>Continuous integration scripts<a class="headerlink" href="#continuous-integration-scripts" title="Permalink to this headline">¶</a></h1>
 <p>When triggered, each job starts by cloning the repository, and checks out the latest commit or the commit that shall be built.
 On the Jenkins node, the Java web call triggers the interpretation of a YAML (YAML Ain’t Markup Language) script, namely the
-<cite>artenolis.yml</cite> script.</p>
+<cite>.artenolis.yml</cite> script.</p>
 <div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
 
 <span class="l l-Scalar l-Scalar-Plain">before_install</span><span class="p p-Indicator">:</span>
@@ -177,9 +183,68 @@ On the Jenkins node, the Java web call triggers the interpretation of a YAML (YA
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bash .ci/runtests.sh</span>
 </pre></div>
 </div>
-<p>Together with build-specific environment variables, an executable shell script, also known as the Hudson shell file, is generated.
-This Hudson shell file is then sent to and executed on each slave in a shell-like environment. The continuous integration process
-is consequently started through the <cite>artenolis.yml</cite> script placed at the root of the repository directory.</p>
+<p>Together with build-specific environment variables, an executable shell script,
+also known as the Hudson shell file, is generated.  This Hudson shell file is
+then sent to and executed on each slave in a shell-like environment. The
+continuous integration process is consequently started through the
+<cite>.artenolis.yml</cite> script placed at the root of the repository directory.</p>
+<p>As a shell script offers cross-platform flexibility, a proper shell script is
+called from the YAML script, namely <cite>runtests.sh</cite> located in the specific <cite>.artenolis</cite>
+folder. The shell script <cite>runtests.sh</cite> runs on all
+supported platforms.</p>
+<p>Each platform is identified by the environment variable
+<cite>ARCH</cite>, which is set by the job definitions. The simplest
+launch command is set for UNIX operating systems (Linux and macOS).</p>
+<div class="section" id="setup-on-windows">
+<h2>Setup on Windows<a class="headerlink" href="#setup-on-windows" title="Permalink to this headline">¶</a></h2>
+<p>A key challenge is to trigger a build on a Windows platform and launch MATLAB
+while providing live feedback, similar to UNIX platforms. As no native bash
+console exists on DOS-based systems, the output of MATLAB is not directly
+routed to the console. Instead, <a class="reference external" href="git-scm.com/download/win">git Bash</a> is used,
+and the Hudson script launching MATLAB is executed in <cite>sh.exe</cite>. As the output
+from a shell-like environment is not routed back to the master node directly, a
+computational trick must be used in order to however display a live console
+output on the Jenkins web interface.</p>
+<p>This trick ensures the homogeneity of <cite>ARTENOLIS</cite> despite the large differences
+between DOS and UNIX operating systems supported by <cite>ARTENOLIS</cite>.</p>
+<p>The output of MATLAB is routed to a file (<cite>output.log</cite>), while the process is
+run as a hidden process marked with &amp;. The process ID is saved as PID. While
+the hidden process is running, the log file is constantly read in (or followed)
+by the system command tail, whose output is redirected to Jenkins. The shell
+script runtests.sh then only exits once the MATLAB process with PID has been
+executed without an error.</p>
+<p>Any eventual error code thrown during this process is caught in the variable
+<cite>$CODE</cite>. This is the exit code of the script <cite>runtests.sh</cite> that is returned to
+Jenkins running on the master node.</p>
+</div>
+<div class="section" id="the-runtests-sh-script">
+<h2>The <cite>runtests.sh</cite> script<a class="headerlink" href="#the-runtests-sh-script" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ARCH</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;Linux&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nv">$INSTALLDIR</span>/MATLAB/<span class="nv">$MATLAB_VER</span>/bin/./matlab -nodesktop -nosplash &lt; test/testAll.m
+
+    <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ARCH</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;macOS&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> caffeinate -u <span class="p">&amp;</span>
+        <span class="nv">$INSTALLDIR</span>/MATLAB_<span class="nv">$MATLAB_VER</span>.app/bin/matlab -nodesktop -nosplash &lt; test/testAll.m
+
+    <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ARCH</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;windows&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="c1"># change to the build directory</span>
+        <span class="nb">echo</span> <span class="s2">&quot; -- changing to the build directory --&quot;</span>
+        <span class="nb">cd</span> <span class="s2">&quot;D:\\jenkins\\workspace\\COBRAToolbox-windows\\MATLAB_VER\\</span><span class="nv">$MATLAB_VER</span><span class="s2">\\label\\</span><span class="nv">$ARCH</span><span class="s2">&quot;</span>
+        <span class="nb">echo</span> <span class="s2">&quot; -- launching MATLAB --&quot;</span>
+        <span class="nb">unset</span> Path
+        nohup <span class="s2">&quot;D:\\MATLAB\\</span><span class="nv">$MATLAB_VER</span><span class="s2">\\\bin\\matlab.exe&quot;</span> -nojvm -nodesktop -nosplash -useStartupFolderPref -logfile output.log -wait -r <span class="s2">&quot;restoredefaultpath; cd test; ... testAll;&quot;</span> <span class="p">&amp;</span> <span class="nv">PID</span><span class="o">=</span><span class="nv">$!</span>
+
+        <span class="c1"># follow the log file</span>
+        tail -n0 -F --pid<span class="o">=</span><span class="nv">$!</span> output.log <span class="m">2</span>&gt;/dev/null
+        <span class="c1"># wait until the background process is done</span>
+        <span class="nb">wait</span> <span class="nv">$PID</span>
+    <span class="k">fi</span>
+
+<span class="nv">CODE</span><span class="o">=</span><span class="nv">$?</span>
+<span class="nb">exit</span> <span class="nv">$CODE</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -192,7 +257,7 @@ is consequently started through the <cite>artenolis.yml</cite> script placed at 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="getstarted.html" class="btn btn-neutral float-right" title="How to get started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="funding.html" class="btn btn-neutral float-right" title="Funding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="jobDefinitions.html" class="btn btn-neutral" title="Job definitions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
