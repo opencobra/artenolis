@@ -147,6 +147,12 @@ html_context = {'conf_py_path': os.path.join(os.sep, 'docs', 'source', ''),
                 'github_repo': 'artenolis',
                 'github_version': 'master',
                 'logo': 'img/logo_artenolis.png',
+                'favicon_apple_touch': 'img/apple-touch-icon.png',
+                'favicon32x32': 'img/favicon-32x32.png',
+                'favicon16x16': 'img/favicon-16x16.png',
+                'favicon_safari_pinned_tab': 'img/safari-pinned-tab.svg',
+                'manifest': 'json/manifest.json',
+                'browserconfig': 'browserconfig.xml',
                 'theme_logo_only': True,
                 'show_source': False}
 #                'display_github': True}
