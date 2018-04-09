@@ -7,4 +7,4 @@ Setup
 
     overview
     architecture
-
+    software

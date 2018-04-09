@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; ARTENOLIS</title>
+  <title>Software &mdash; ARTENOLIS</title>
   
 
   
@@ -66,8 +66,8 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="ARTENOLIS" href="index.html"/>
         <link rel="up" title="Setup" href="setup.html"/>
-        <link rel="next" title="Architecture" href="architecture.html"/>
-        <link rel="prev" title="Setup" href="setup.html"/> 
+        <link rel="next" title="Configurations" href="configurations.html"/>
+        <link rel="prev" title="Architecture" href="architecture.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -151,9 +151,9 @@
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getstarted.html">How to get started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="setup.html">Setup</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="architecture.html">Architecture</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html">Software</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Software</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="configurations.html">Configurations</a></li>
@@ -205,7 +205,7 @@
         
           <li><a href="setup.html">Setup</a> &raquo;</li>
         
-      <li>Overview</li>
+      <li>Software</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -222,17 +222,77 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<a class="reference internal image-reference" href="_images/setup.png"><img alt="ARTENOLIS setup" class="align-center" src="_images/setup.png" style="width: 750px;" /></a>
-<p>The core of the infrastructure is Jenkins, the open source automation server
-for continuous delivery. The continuous integration infrastructure consists of
-a cascade of 3 distinct layers and is a master-slave architecture: a public
-interaction layer (top), the Jenkins server layer, and the layer with 4
-computing nodes behind a firewall, each running a different operating system. A
-change made in a public repository on GitHub (github.com) is seen by the
-Jenkins server (master), which in turn triggers multiple builds on the 4
-computing nodes simultaneously (slaves).</p>
+  <div class="section" id="software">
+<h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
+<p><br></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Software</th>
+<th class="head">Linux</th>
+<th class="head">macOS</th>
+<th class="head">Windows 7</th>
+<th class="head">Windows 10</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>R2017b</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+</tr>
+<tr class="row-odd"><td>R2016b</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+</tr>
+<tr class="row-even"><td>R2015b</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+</tr>
+<tr class="row-odd"><td>R2014b</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+</tr>
+<tr class="row-even"><td>CPLEX</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"> (12.8)</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/cross.png" height="20px" width="20px" alt="no"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/cross.png" height="20px" width="20px" alt="no"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/cross.png" height="20px" width="20px" alt="no"></td>
+</tr>
+<tr class="row-odd"><td>GUROBI</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"> (7.5.1)</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"> (7.5.1)</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"> (7.5.1)</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"> (7.5.1)</td>
+</tr>
+<tr class="row-even"><td>TOMLAB</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/cross.png" height="20px" width="20px" alt="no"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/cross.png" height="20px" width="20px" alt="no"></td>
+</tr>
+<tr class="row-odd"><td>MOSEK</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"> (8)</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/cross.png" height="20px" width="20px" alt="no"></td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes"> (8)</td>
+<td><img src="https://prince.lcsb.uni.lu/jenkins/userContent/cross.png" height="20px" width="20px" alt="no"></td>
+</tr>
+</tbody>
+</table>
+<p><br></p>
 </div>
 
 
@@ -245,10 +305,10 @@ computing nodes simultaneously (slaves).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="architecture.html" class="btn btn-neutral float-right" title="Architecture" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="configurations.html" class="btn btn-neutral float-right" title="Configurations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="setup.html" class="btn btn-neutral" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="architecture.html" class="btn btn-neutral" title="Architecture" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
