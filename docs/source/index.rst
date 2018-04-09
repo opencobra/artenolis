@@ -26,7 +26,6 @@ Automated Reproducibility and |br| Testing Environment for Licensed Software
     :start-after: begin-intro-marker
     :end-before: end-intro-marker
 
-
 .. |br| raw:: html
 
    <br>
