@@ -3,18 +3,18 @@ Software
 
 |br|
 
-============= ============= ============= ========= ==========
-Software      Linux         macOS         Windows 7 Windows 10
-============= ============= ============= ========= ==========
-MATLAB R2017b |yes|         |yes|
-MATLAB R2016b |yes|         |yes|
-MATLAB R2015b |yes|         |yes|
-MATLAB R2014b |yes|         |yes|
-CPLEX         |yes| (12.8)  |no|
-GUROBI        |yes| (7.5.1) |yes| (7.5.1)
-TOMLAB        |yes|         |no|
-MOSEK         |yes| (8)     |no|
-============= ============= ============= ========= ==========
+============= ============= ============= ============= =============
+Software      Linux         macOS         Windows 7     Windows 10
+============= ============= ============= ============= =============
+R2017b        |yes|         |yes|         |yes|         |yes|
+R2016b        |yes|         |yes|         |yes|         |yes|
+R2015b        |yes|         |yes|         |yes|         |yes|
+R2014b        |yes|         |yes|         |yes|         |yes|
+CPLEX         |yes| (12.8)  |no|          |no|          |no|
+GUROBI        |yes| (7.5.1) |yes| (7.5.1) |yes| (7.5.1) |yes| (7.5.1)
+TOMLAB        |yes|         |no|          |yes|         |no|
+MOSEK         |yes| (8)     |no|          |yes| (8)     |no|
+============= ============= ============= ============= =============
 
 |br|
 
