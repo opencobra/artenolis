@@ -8,6 +8,6 @@ script:
     - cd $CURRENT_DIR
 
 after_success:
-    - export PATH="/home/sbg-jenkins/.local/bin":$PATH;
+    - export PATH="/home/jenkins/.local/bin":$PATH;
       pip install --upgrade --user -r docs/requirements.txt;
       python -c "from documenter.deploy import Documentation; doc = Documentation('github.com/opencobra/artenolis', ci='jenkins'); doc.deploy()";
