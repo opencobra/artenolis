@@ -20,11 +20,11 @@ MOSEK         |yes| (8)     |no|          |yes| (8)     |no|
 
 .. |yes| raw:: html
 
-   <img src="https://prince.lcsb.uni.lu/jenkins/userContent/white_check_mark.png" height="20px" width="20px" alt="yes">
+   <img src="https://prince.lcsb.uni.lu/artenolis/img/white_check_mark.png" height="20px" width="20px" alt="yes">
 
 .. |no| raw:: html
 
-   <img src="https://prince.lcsb.uni.lu/jenkins/userContent/cross.png" height="20px" width="20px" alt="no">
+   <img src="https://prince.lcsb.uni.lu/artenolis/img/cross.png" height="20px" width="20px" alt="no">
 
 .. |br| raw:: html
 
