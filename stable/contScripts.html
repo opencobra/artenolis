@@ -231,16 +231,16 @@
 <p>When triggered, each job starts by cloning the repository, and checks out the latest commit or the commit that shall be built.
 On the Jenkins node, the Java web call triggers the interpretation of a YAML (YAML Ain’t Markup Language) script, namely the
 <cite>.artenolis.yml</cite> script.</p>
-<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">language</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
+<div class="highlight-yaml"><div class="highlight"><pre><span></span><span class="nt">language</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">bash</span>
 
-<span class="l l-Scalar l-Scalar-Plain">before_install</span><span class="p p-Indicator">:</span>
+<span class="nt">before_install</span><span class="p">:</span>
 
     <span class="c1"># fresh clone of the repository</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">if [[ -a .git/shallow ]]; then</span>
         <span class="l l-Scalar l-Scalar-Plain">git fetch --unshallow;</span>
       <span class="l l-Scalar l-Scalar-Plain">fi</span>
 
-<span class="l l-Scalar l-Scalar-Plain">script</span><span class="p p-Indicator">:</span>
+<span class="nt">script</span><span class="p">:</span>
 
     <span class="c1"># launch the tests</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">bash .ci/runtests.sh</span>
@@ -323,7 +323,7 @@ Jenkins running on the master node.</p>
         <a href="projects.html" class="btn btn-neutral float-right" title="Projects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="jobDefinitions.html" class="btn btn-neutral" title="Job definitions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="jobDefinitions.html" class="btn btn-neutral float-left" title="Job definitions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -332,7 +332,7 @@ Jenkins running on the master node.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, The ARTENOLIS developers.
+        &copy; Copyright 2018, The ARTENOLIS developers
 
     </p>
   </div>
