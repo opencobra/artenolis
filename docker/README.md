@@ -1,6 +1,6 @@
 # Artenolis docker
 
-Project to encapsulate Artinolis system in a docker image at facilitate easy replication or
+Project to encapsulate Artinolis system in a docker image to facilitate easy replication or
 server redeployment.
 
 
@@ -11,6 +11,7 @@ done with the script at https://github.com/sue445/jenkins-backup-script
 which backups all the essential files from the .jenkins home directory.
 Copy this backup file to jenkins-backup.tar.gz in the build directory.
 
+To build:
 
 ```
 docker build -t opencobra/artenolis .
@@ -24,11 +25,13 @@ sudo docker run -p 8080:8080 --rm -it opencobra/artenolis
 
 The -p flag maps the Jenkins server runing in port 8080 in the docker container to 
 port 8080 on the host (-p host-port:docker-port). If port 8080 is already in use
-substutute the host-port for another unused port number.
+substutute the host-port for another port number.
 
 
 ## TODO
 
-The Jenkins backup contains some private login credentials, so need to find a 
+ * The Jenkins backup contains some private login credentials, so need to find a 
 good way to separate out the public and private parts of the Jenkins 
 configuration.
+
+ * Running matlab from instide docker...
