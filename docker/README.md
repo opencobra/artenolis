@@ -4,26 +4,31 @@ Project to encapsulate Artinolis system in a docker image at facilitate easy rep
 server redeployment.
 
 
-## Using official Jenkins docker image
+## Building and executing Artenolis Jenkins installation
 
-Documentation at 
-https://github.com/jenkinsci/docker/blob/master/README.md
+The build process requires a backup of the Jenkins CI installation. This can be 
+done with the script at https://github.com/sue445/jenkins-backup-script 
+which backups all the essential files from the .jenkins home directory.
+Copy this backup file to jenkins-backup.tar.gz in the build directory.
 
-
-```
-docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
-```
-
-
-## Using custom docker image
-
-To build docker image
 
 ```
 docker build -t opencobra/artenolis .
 ```
 
-(work in progress)
+To execute: 
+
+```
+sudo docker run -p 8080:8080 --rm -it opencobra/artenolis
+```
+
+The -p flag maps the Jenkins server runing in port 8080 in the docker container to 
+port 8080 on the host (-p host-port:docker-port). If port 8080 is already in use
+substutute the host-port for another unused port number.
 
 
+## TODO
 
+The Jenkins backup contains some private login credentials, so need to find a 
+good way to separate out the public and private parts of the Jenkins 
+configuration.
