@@ -34,4 +34,9 @@ substutute the host-port for another port number.
 good way to separate out the public and private parts of the Jenkins 
 configuration.
 
- * Running matlab from instide docker...
+ * A bulk of the current Artenolis Jenkins configuration backup (about 100MB) is 
+made of up the  plugin executable code. Perhaps this can be downloaded as part of 
+the docker build process (?). The rest of the configuration compresses to to a 20kB 
+file.
+
+ * Running matlab from inside docker...
