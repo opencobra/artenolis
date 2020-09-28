@@ -39,4 +39,4 @@ made of up the  plugin executable code. Perhaps this can be downloaded as part o
 the docker build process (?). The rest of the configuration compresses to to a 20kB 
 file.
 
- * Running matlab from inside docker...
+ * How to run matlab inside docker? https://github.com/mathworks-ref-arch/matlab-dockerfile
