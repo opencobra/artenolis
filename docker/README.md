@@ -11,10 +11,16 @@ done with the script at https://github.com/sue445/jenkins-backup-script
 which backups all the essential files from the .jenkins home directory.
 Copy this backup file to jenkins-backup.tar.gz in the build directory.
 
+Prior to building copy the following files into the build directory:
+
+ * jenkins-backup.tar.gz (Artenolis Jenkins configuration backup)
+ * ibm.tar.gz (ILOG CPLEX library)
+
+
 To build:
 
 ```
-docker build -t opencobra/artenolis .
+sudo docker build -t opencobra/artenolis .
 ```
 
 To execute: 
@@ -25,7 +31,7 @@ sudo docker run -p 8080:8080 --rm -it opencobra/artenolis
 
 The -p flag maps the Jenkins server runing in port 8080 in the docker container to 
 port 8080 on the host (-p host-port:docker-port). If port 8080 is already in use
-substutute the host-port for another port number.
+substitute the host-port for another port number.
 
 
 ## TODO

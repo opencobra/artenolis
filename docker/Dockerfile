@@ -21,6 +21,11 @@ RUN mkdir /opt; cd /opt; wget -q -O - https://julialang-s3.julialang.org/bin/lin
 # Symbolic link to old julia location so that existing test configs continue to work
 RUN mkdir -p /home/vmhadmin; ln -s /opt/julia-1.2.0 /home/vmhadmin/julia-1.2.0
 
+# IBM CPLEX
+RUN mkdir /opt/ibm
+ADD ibm.tar.gz /opt/
+ENV PATH "$PATH:/opt/ibm/ILOG/CPLEX_Studio129/cplex/bin/x86-64_linux"
+
 # Default run command
 CMD java -jar /root/jenkins.war
 
