@@ -16,7 +16,6 @@ Prior to building copy the following files into the build directory:
  * jenkins-backup.tar.gz (Artenolis Jenkins configuration backup)
  * ibm.tar.gz (ILOG CPLEX library)
 
-
 To build:
 
 ```
