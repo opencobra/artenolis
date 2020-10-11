@@ -74,3 +74,20 @@ Add to crontab:
 
 Remark: the bulk of the configuration backup are the optional Jenkins plugins. Without these the 
 configuration is about 20kB. 
+
+## Building Artenolis documentation using Sphinx
+
+Require:
+  * https://github.com/martamatos/sphinx_cobra_theme.git (build with python3 setup.py install)
+  * pip3 install sphinx_rtd_theme
+  * pip3 install sphinxcontrib-fulldoc
+  
+```
+cd docs
+Make html
+```
+
+Output in build/html. Checkout gh-pages branch and copy to ./latest or ./stable documenation tree.
+
+Remark: current output template differs from HTML currently in the repository. TODO: see if there is 
+more recent theme/template.
