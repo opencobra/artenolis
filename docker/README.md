@@ -91,3 +91,10 @@ Output in build/html. Checkout gh-pages branch and copy to ./latest or ./stable 
 
 Remark: current output template differs from HTML currently in the repository. TODO: see if there is 
 more recent theme/template.
+
+# Artenolis inventory of accounts
+
+ * cobratoolboxbot at github
+ 
+ * cobratoolboxbot at gmail (linked to github ac) TODO: get telephone number linked to account
+ 
