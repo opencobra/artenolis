@@ -119,6 +119,10 @@ It takes about a minute to start. At the end of the logs you will see the randmi
 
 Open browser at http://localhost:8080   and enter the admin password when prompted.  Choose "Install Suggested Plugins". Allow a few minutes for the plugins to install.  For first admin user chose 'jenkins' and use your own email address. For instance configuration leave at default http://localhost:8080
 
+Go to Jenkins -> Manage Jenkins -> Manage Plugins -> Avaiable tab. Search for  "Blue Ocean".   Install plugin "Blue Ocean" (this is an aggretate package which loads many sub-plugins).
+
+A new  "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub -> (create access token via link provided), pase access token. Select cobratoolbox project. Create pipeline.
+
 
 
  
