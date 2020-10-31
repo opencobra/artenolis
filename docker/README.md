@@ -98,3 +98,24 @@ more recent theme/template.
  
  * cobratoolboxbot at gmail (linked to github ac) TODO: get telephone number linked to account
  
+ # Building Artenolis from scratch
+ 
+Using a clean minimal Ubuntu 20.04 distribution as base. If using a virtual machine, convigure with 4GB RAM, 24GB disk space. During install select minimal install, no third part apps. Set primary user 'jenkins', host 'artenolis'. Select a strong password and keep record of it.
+ 
+```
+apt update
+apt install openjdk-11-jre-headless
+```
+
+Download the LTS version of Jenkins from https://www.jenkins.io/  (this howto has been written for version 2.249.2 LTS).
+
+To run Jenkins using the built in Jetty web server:
+
+```
+java -jar jenkins.war
+```
+
+It takes about a minute to start. At the end of the logs you will see the randmin admin password. Make record of this.
+
+
+ 
