@@ -115,7 +115,10 @@ To run Jenkins using the built in Jetty web server:
 java -jar jenkins.war
 ```
 
-It takes about a minute to start. At the end of the logs you will see the randmin admin password. Make record of this.
+It takes about a minute to start. At the end of the logs you will see the randmin admin password. Make record of this. The admin password can be retrieve later from file /home/jenkins/.jenkins/secrets/initialAdminPassword
+
+Open browser at http://localhost:8080   and enter the admin password when prompted.  Choose "Install Suggested Plugins". Allow a few minutes for the plugins to install.  For first admin user chose 'jenkins' and use your own email address. For instance configuration leave at default http://localhost:8080
+
 
 
  
