@@ -80,7 +80,7 @@ configuration is about 20kB.
 Require:
   * https://github.com/martamatos/sphinx_cobra_theme.git (build with python3 setup.py install)
   * pip3 install sphinx_rtd_theme
-  * pip3 install sphinxcontrib-fulldoc
+  * pip3 install sphinxcontrib-fulltoc
   
 ```
 cd docs
@@ -181,7 +181,6 @@ If all goes well Jenkins will be accessable from https://artenolis.example.com  
 
 ## References
 
-"Set up Jenkins on Ubuntu 18.04 with LetsEncrypt (HTTPS) using Nginx"
   * "Set up Jenkins on Ubuntu 18.04 with LetsEncrypt (HTTPS) using Nginx" https://medium.com/@kerren_12230/set-up-jenkins-on-ubuntu-18-04-with-letsencrypt-https-using-nginx-7046baa276d9
 
 
