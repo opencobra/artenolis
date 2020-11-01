@@ -98,7 +98,7 @@ more recent theme/template.
  
  * cobratoolboxbot at gmail (linked to github ac) TODO: get telephone number linked to account
  
- # Building Artenolis from scratch
+# Building Artenolis from scratch
  
 Using a clean minimal Ubuntu 20.04 distribution as base. Recommended minimum for Jenkins is 4GB RAM, 24GB disk space, however in the Artenolis configuration, due to the need to run resourse intensive Matlab jobs, a minimum of 16GB and 500GB disk space is recommended. 
 
@@ -126,6 +126,11 @@ Go to Jenkins -> Manage Jenkins -> Manage Plugins -> Avaiable tab. Search for  "
 A new  "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub -> (create access token via link provided), paste access token. Select cobratoolbox project. Create pipeline.
 
 Jenkins defaults to using port 8080. However best practise is to make this available on the default HTTPS port (443). 
+
+## References
+
+"Set up Jenkins on Ubuntu 18.04 with LetsEncrypt (HTTPS) using Nginx"
+  * "Set up Jenkins on Ubuntu 18.04 with LetsEncrypt (HTTPS) using Nginx" https://medium.com/@kerren_12230/set-up-jenkins-on-ubuntu-18-04-with-letsencrypt-https-using-nginx-7046baa276d9
 
 
 
