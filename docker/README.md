@@ -125,7 +125,59 @@ Go to Jenkins -> Manage Jenkins -> Manage Plugins -> Avaiable tab. Search for  "
 
 A new  "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub -> (create access token via link provided), paste access token. Select cobratoolbox project. Create pipeline.
 
-Jenkins defaults to using port 8080. However best practise is to make this available on the default HTTPS port (443). 
+Jenkins defaults to using port 8080. However best practise is to make this available on the default HTTPS port (443). There are several ways of achiving this. The apporach taken here use the nginx web server as a reverse-proxy to the Jenkins server.
+
+```
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt install -y nginx python3-certbot-nginx
+```
+
+Replace file /etc/nginx/sites-available/default  with:
+
+```
+upstream jenkins {
+  server 127.0.0.1:8080 fail_timeout=0;
+}
+
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name artenolis.example.com;
+
+        location / {
+                proxy_set_header        Host $host:$server_port;
+                proxy_set_header        X-Real-IP $remote_addr;
+                proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header        X-Forwarded-Proto $scheme; 
+                proxy_set_header        Upgrade $http_upgrade;
+                proxy_set_header        Connection "upgrade";
+                proxy_pass              http://jenkins;
+        }
+}
+
+```
+
+Replace 'artenolis.example.com' with the proper full host name of the Artenolis server, eg king.nuigalway.ie. Check config file and restart nginx:
+
+```
+sudo nginx -t
+sudo systemctl restart nginx
+```
+
+Now run certbot to create a HTTPS certificate (again replace artenolis.example.com' with the correct full host name).
+
+```
+sudo certbot --nginx -d artenolis.example.com
+```
+
+Certbot will ask a few questions (eg agreeing to terms and conditions etc). For the final question, choose redirect all traffic to HTTPS (option 2).
+
+If all goes well Jenkins will be accessable from https://artenolis.example.com  (again replace the host name)
+
 
 ## References
 
