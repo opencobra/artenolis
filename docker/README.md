@@ -100,7 +100,9 @@ more recent theme/template.
  
  # Building Artenolis from scratch
  
-Using a clean minimal Ubuntu 20.04 distribution as base. If using a virtual machine, convigure with 4GB RAM, 24GB disk space. During install select minimal install, no third part apps. Set primary user 'jenkins', host 'artenolis'. Select a strong password and keep record of it.
+Using a clean minimal Ubuntu 20.04 distribution as base. Recommended minimum for Jenkins is 4GB RAM, 24GB disk space, however in the Artenolis configuration, due to the need to run resourse intensive Matlab jobs, a minimum of 16GB and 500GB disk space is recommended. 
+
+During Ubuntu install select minimal install, no third part apps. Set primary user 'jenkins', host 'artenolis'. Select a strong password and keep record of it.
  
 ```
 apt update
@@ -121,7 +123,9 @@ Open browser at http://localhost:8080   and enter the admin password when prompt
 
 Go to Jenkins -> Manage Jenkins -> Manage Plugins -> Avaiable tab. Search for  "Blue Ocean".   Install plugin "Blue Ocean" (this is an aggretate package which loads many sub-plugins).
 
-A new  "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub -> (create access token via link provided), pase access token. Select cobratoolbox project. Create pipeline.
+A new  "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub -> (create access token via link provided), paste access token. Select cobratoolbox project. Create pipeline.
+
+Jenkins defaults to using port 8080. However best practise is to make this available on the default HTTPS port (443). 
 
 
 
