@@ -35,14 +35,14 @@
   
   <meta name="theme-color" content="#ffffff">
 
-  
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
   <script src="_static/js/jquery.easy-autocomplete.min.js" type="text/javascript" ></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
   <link href="_static/css/easy-autocomplete.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,7 +55,7 @@
 
   
   
-    <link rel="stylesheet" href="_static/css/julia.css" type="text/css" />
+    <link rel="stylesheet" href="_static/css/cobra.css" type="text/css" />
   
 
   
@@ -71,7 +71,6 @@
 
   
   <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -85,16 +84,16 @@
         <div class="wy-side-nav-search">
           
 
-          <a href="index.html">
+          
+            <a href="index.html">
+          
 
           
             
-            
-              <img src="_static/img/logo_artenolis.png" class="logo" style="max-height: 10em;"/>
-            
+            <img src="https://raw.githubusercontent.com/opencobra/artenolis/master/docs/source/_static/img/logo_artenolis.png" class="logo" alt="artenolis logo"/>
           
           </a>
-          
+          <h1>ARTENOLIS</h1>
 
           
 
@@ -127,7 +126,7 @@
     	template: {
 	    	type: "custom",
 		    method: function(value, item) {
-                return "<span><a href='search.html?q=" + item.name + "&check_keywords=yes&area=default'>" + value + "</a>" + "<a href='_static/../" + item.website_url + "' ><img src='_static/img/link.svg'/></a></span>";
+                return "<span><a href='search.html?q=" + item.name + "&check_keywords=yes&area=default'>" + value + "</a>" + "<a href='_static/../" + item.website_url + "' ><img src='_static/link.svg'/></a></span>";
 		    }
 	    },
 
@@ -148,6 +147,9 @@
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
               <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+              </ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getstarted.html">How to get started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="setup.html">Setup</a><ul class="current">
@@ -159,6 +161,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="software.html">Software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_server.html">Building Artenolis Server</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="configurations.html">Configurations</a></li>
@@ -206,7 +209,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="setup.html">Setup</a> &raquo;</li>
         
@@ -224,7 +227,7 @@
   
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+          <div role="main" class="document" itemscope="itemscope" itemtype="https://schema.org/Article">
            <div itemprop="articleBody">
             
   <div class="section" id="architecture">
@@ -244,73 +247,73 @@ orchestrates the slave nodes.  The Linux (Debian based), Windows 7, and Windows
 10 operating systems are virtual machines and are running on the same physical
 computing node, whereas the macOS operating system is running on a dedicated
 physical machine. The specifications of the computing nodes are:</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="1%" />
-<col width="16%" />
-<col width="12%" />
-<col width="12%" />
-<col width="13%" />
-<col width="7%" />
-<col width="19%" />
-<col width="19%" />
+<col style="width: 1%" />
+<col style="width: 16%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 13%" />
+<col style="width: 7%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">#</th>
-<th class="head">Name</th>
-<th class="head">Type</th>
-<th class="head">Mode</th>
-<th class="head">Memory</th>
-<th class="head">cores</th>
-<th class="head">OS</th>
-<th class="head">Storage (GB)</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>#</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Mode</p></th>
+<th class="head"><p>Memory</p></th>
+<th class="head"><p>cores</p></th>
+<th class="head"><p>OS</p></th>
+<th class="head"><p>Storage (GB)</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>1</td>
-<td>Prince</td>
-<td>Virtual</td>
-<td>master</td>
-<td>8GB ECC</td>
-<td>4</td>
-<td>Ubuntu 16.04</td>
-<td>34+120</td>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Prince</p></td>
+<td><p>Virtual</p></td>
+<td><p>master</p></td>
+<td><p>8GB ECC</p></td>
+<td><p>4</p></td>
+<td><p>Ubuntu 16.04</p></td>
+<td><p>34+120</p></td>
 </tr>
-<tr class="row-odd"><td>2</td>
-<td>Linux</td>
-<td>Virtual</td>
-<td>slave</td>
-<td>18GB ECC</td>
-<td>20</td>
-<td>Ubuntu 16.04</td>
-<td>46+200</td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Linux</p></td>
+<td><p>Virtual</p></td>
+<td><p>slave</p></td>
+<td><p>18GB ECC</p></td>
+<td><p>20</p></td>
+<td><p>Ubuntu 16.04</p></td>
+<td><p>46+200</p></td>
 </tr>
-<tr class="row-even"><td>2</td>
-<td>Windows 7</td>
-<td>Virtual</td>
-<td>slave</td>
-<td>18GB ECC</td>
-<td>20</td>
-<td>Windows 7</td>
-<td>60+200</td>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Windows 7</p></td>
+<td><p>Virtual</p></td>
+<td><p>slave</p></td>
+<td><p>18GB ECC</p></td>
+<td><p>20</p></td>
+<td><p>Windows 7</p></td>
+<td><p>60+200</p></td>
 </tr>
-<tr class="row-odd"><td>2</td>
-<td>Windows 10</td>
-<td>Virtual</td>
-<td>slave</td>
-<td>18GB ECC</td>
-<td>20</td>
-<td>Windows 10</td>
-<td>50+200</td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Windows 10</p></td>
+<td><p>Virtual</p></td>
+<td><p>slave</p></td>
+<td><p>18GB ECC</p></td>
+<td><p>20</p></td>
+<td><p>Windows 10</p></td>
+<td><p>50+200</p></td>
 </tr>
-<tr class="row-even"><td>3</td>
-<td>Mac</td>
-<td>Physical</td>
-<td>slave</td>
-<td>24GB ECC</td>
-<td>12</td>
-<td>macOS 10.12</td>
-<td>250</td>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Mac</p></td>
+<td><p>Physical</p></td>
+<td><p>slave</p></td>
+<td><p>24GB ECC</p></td>
+<td><p>12</p></td>
+<td><p>macOS 10.12</p></td>
+<td><p>250</p></td>
 </tr>
 </tbody>
 </table>
@@ -364,10 +367,10 @@ oVirt 4.1.0.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="software.html" class="btn btn-neutral float-right" title="Software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="software.html" class="btn btn-default float-right" title="Software" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="overview.html" class="btn btn-default" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -376,11 +379,11 @@ oVirt 4.1.0.</p>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, The ARTENOLIS developers
+        &copy; Copyright 2020, The ARTENOLIS developers.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with Sphinx using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -407,8 +410,10 @@ oVirt 4.1.0.</p>
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
 
   
+
 
   
   
