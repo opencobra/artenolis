@@ -1,4 +1,5 @@
-git+https://github.com/LCSB-BioCore/sphinx.git@develop#egg=sphinx
 sphinx_rtd_theme
-git+https://github.com/LCSB-BioCore/sphinx_julia_theme.git@develop#egg=sphinx_julia_theme
-git+https://github.com/syarra/Documenter.py@master#egg=documenter
+sphinx_julia_theme
+sphinxcontrib-fulltoc
+#git+https://github.com/martamatos/sphinx_cobra_theme.git#egg=sphinx_cobra_theme
+
