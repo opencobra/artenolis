@@ -1,4 +1,4 @@
-.. _projects:
+.. _building_server:
 
 Building Artenolis Server
 =========================
