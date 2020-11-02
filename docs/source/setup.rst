@@ -8,3 +8,4 @@ Setup
     overview
     architecture
     software
+    building_server

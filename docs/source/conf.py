@@ -56,7 +56,7 @@ master_doc = 'contents'
 
 # General information about the project.
 project = u'ARTENOLIS'
-copyright = u'2018, The ARTENOLIS'' developers'
+copyright = u'2020, The ARTENOLIS'' developers'
 author = u'The ARTENOLIS'' developers'
 
 # The version info for the project you're documenting, acts as replacement for

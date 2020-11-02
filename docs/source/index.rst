@@ -18,7 +18,7 @@ Automated Reproducibility and |br| Testing Environment for Licensed Software
     </style>
 
     <div class="alert alert-info" align="center">
-        View ARTENOLIS <strong>source code</strong> on <a href="https://github.com/opencobra/artenolis/"><img src="https://prince.lcsb.uni.lu/artenolis/img/github.png" style="height: 40px !important;"></a>.
+        View ARTENOLIS <strong>source code</strong> on <a href="https://github.com/opencobra/artenolis/"><img src="https://king.nuigalway.ie/artenolis/img/GitHub_Logo.png" style="height: 40px !important;"></a>
     </div>
 
 
