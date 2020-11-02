@@ -3,7 +3,7 @@ Job definitions
 
 A job is a configuration of a build pipeline on ARTENOLIS, has a specific purpose, runs on a different slave/operating system,
 or builds a different branch of the repository. An example of such a
-configuration file is given `here <https://prince.lcsb.uni.lu/artenolis/configExample.yml>`_.
+configuration file is given `here <https://king.nuigalway.ie/artenolis/configExample.yml>`_.
 
 In essence, one job is defined per operating system. Commonly, one job is defined per slave in order to provide
 the highest robustness of ARTENOLIS. A job may also be parameterised. It is possible to configure a matrix of sub-jobs
