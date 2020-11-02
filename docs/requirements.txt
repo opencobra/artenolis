@@ -1,5 +1,5 @@
 sphinx_rtd_theme
-sphinx_julia_theme
+#sphinx_julia_theme
 sphinxcontrib-fulltoc
-#git+https://github.com/martamatos/sphinx_cobra_theme.git#egg=sphinx_cobra_theme
+git+https://github.com/opencobra/sphinx_cobra_theme.git#egg=sphinx_cobra_theme
 
