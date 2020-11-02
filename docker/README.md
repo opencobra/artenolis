@@ -84,7 +84,7 @@ Require:
   
 ```
 cd docs
-Make html
+make html
 ```
 
 Output in build/html. Checkout gh-pages branch and copy to ./latest or ./stable documenation tree.
