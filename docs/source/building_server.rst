@@ -214,4 +214,47 @@ Certbot will ask a few questions (eg agreeing to terms and conditions etc). For 
 
 If all goes well Jenkins will be accessable from https://artenolis.example.com (again replace the host name)
 
+Reference: "Set up Jenkins on Ubuntu 18.04 with LetsEncrypt (HTTPS) using Nginx" https://medium.com/@kerren_12230/set-up-jenkins-on-ubuntu-18-04-with-letsencrypt-https-using-nginx-7046baa276d9
+
+Automating backup of Jenkins configuration
+------------------------------------------
+
+
+.. code-block:: bash
+
+	git clone https://github.com/sue445/jenkins-backup-script.git
+	
+	
+Backup script
+
+.. code-block:: bash
+
+	#!/bin/bash
+	# Backup Artenolis Jenkins configuration
+	# Uses backup script at https://github.com/sue445/jenkins-backup-script
+	JENKINS_BACKUP=/home/vmhadmin/jenkins-backup-script
+	JENKINS_HOME=/home/vmhadmin/.jenkins
+	TS=`date +%Y%m%d-%H%M`
+	${JENKINS_BACKUP}/jenkins-backup.sh ${JENKINS_HOME} ${JENKINS_BACKUP}/jenkins-backup-${TS}.tar.gz >& ${JENKINS_BACKUP}/backup.log
+	
+Add to crontab:
+
+.. code-block:: bash
+
+	@daily /home/vmhadmin/scripts/backup-jenkins-config.sh 
+	
+Remark: the bulk of the configuration backup are the optional Jenkins plugins. Without these the configuration is about 20kB.
+
+Keeping track of important login credentials
+--------------------------------------------
+
+Maintaining the Artenolis system will require keeping track of several keys and credentials. These must not be stored in a public code repository.
+
+  * username / password for the GitHub bot user (cobtratoolboxbot)
+  * personal access token for GitHub bot user
+  * associated email address linked to the GitHub bot user (cobtratoolboxbot@gmail.com)
+  * username / password of jenkins user of server
+  * username / password of admin user of server
+
+  
 
