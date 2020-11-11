@@ -3,22 +3,28 @@
 Building Artenolis Server
 =========================
 
-(work in progress 2020-10-30)
+(work in progress 2020-11-10)
 
 The following 'howto' explains how to setup a Artenolis server starting with a clean Ubuntu 20.04 distribution.
 
-When installing Ubuntu 20.04, choose a minimal install. Set the primary user to 'jenkins' with a strong password
-and make note of the password.
+If running from a Virtual Machine, set RAM 4GB or higher, disk space 24GB or higher.
+
+When installing Ubuntu 20.04, choose a minimal install with no 3rd party software.
+Set the primary user to 'jenkins' with a strong password
+and make note of the password. Set the hostname 'artenolis' (or your preferred host name).
 
 
 .. code-block:: bash
 
-        apt update
-        apt install git openjdk-11-jre-headless
+        sudo apt update
+        sudo apt install -y git openjdk-11-jre-headless
 
+Download the LTS version of Jenkins from https://www.jenkins.io. Choose the Generic Java Package (war) download. This howto has been written for version 2.249.2 LTS which can be downloaded at
+https://get.jenkins.io/war-stable/2.249.3/jenkins.war .  
 
+.. code-block:: bash
 
-Download the LTS version of Jenkins from https://www.jenkins.io/ (this howto has been written for version 2.249.2 LTS).
+	wget https://get.jenkins.io/war-stable/2.249.3/jenkins.war
 
 To run Jenkins using the built in Jetty web server:
 
@@ -26,13 +32,36 @@ To run Jenkins using the built in Jetty web server:
 
         java -jar jenkins.war
 
-It takes about a minute to start. At the end of the logs you will see the randmin admin password. Make record of this. The admin password can be retrieve later from file /home/jenkins/.jenkins/secrets/initialAdminPassword
+It takes about a minute to start. Logs are echoed to standard output. When Jenkins is finished starting, at the end of the logs you will see the random admin password. Make record of this. The admin password can be retrieve later from file /home/jenkins/.jenkins/secrets/initialAdminPassword. Example:
 
-Open browser at http://localhost:8080 and enter the admin password when prompted. Choose "Install Suggested Plugins". Allow a few minutes for the plugins to install. For first admin user chose 'jenkins' and use your own email address. For instance configuration leave at default http://localhost:8080
+.. code-block:: bash
 
-Go to Jenkins -> Manage Jenkins -> Manage Plugins -> Avaiable tab. Search for "Blue Ocean". Install plugin "Blue Ocean" (this is an aggretate package which loads many sub-plugins).
+	Jenkins initial setup is required. An admin user has been created and a password generated.
+	Please use the following password to proceed to installation:
 
-A new "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub -> (create access token via link provided), paste access token. Select cobratoolbox project. Create pipeline.
+	31032562bf8c4f96a0577790f79c17cc
+
+	This may also be found at: /home/jenkins/.jenkins/secrets/initialAdminPassword
+
+
+Initial setup of Jenkins
+------------------------
+
+
+Open browser at http://localhost:8080 and enter the admin password when prompted. Choose "Install Suggested Plugins". Allow a few minutes for the plugins to install. 
+
+For first admin user chose username 'jenkins', full name 'jenkins' and use your own email address. 
+
+For the 'Instance Configuration' leave at default http://localhost:8080 for the moment. Click 'Save and Finish'. You are now ready to setup Jenkins for the Artenolis configuration.
+
+
+Setting up Jenkins for Artenolis
+--------------------------------
+
+Artenolis requires the 'Blue Ocean' plugin.  Go to Jenkins -> Manage Jenkins -> Manage Plugins -> Available tab. Search for "Blue Ocean". Install plugin "Blue Ocean" plugin by selecting it and clicking on "Install Now" button. "Blue Ocean" is an aggretate package which loads many sub-plugins. Check the "Restart Jenkins when installation is complete" checkbox to restart Jenkins which will enable the plugin.
+
+After restart a new "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub -> (create access token via link provided), paste access token. Select cobratoolbox project. Create pipeline.
+
 
 Enabling HTTPS for public server
 --------------------------------
