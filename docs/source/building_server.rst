@@ -5,7 +5,8 @@ Building Artenolis Server
 
 (work in progress 2020-11-10)
 
-The following 'howto' explains how to setup a Artenolis server starting with a clean Ubuntu 20.04 distribution.
+The following 'howto' explains how to setup a Artenolis server starting with a clean Ubuntu 20.04 distribution. Before starting you should have ready the credentials 
+to the 'bot' github user (eg cobratoolboxbot). 
 
 If running from a Virtual Machine, set RAM 4GB or higher, disk space 24GB or higher.
 
@@ -50,9 +51,15 @@ Initial setup of Jenkins
 
 Open browser at http://localhost:8080 and enter the admin password when prompted. Choose "Install Suggested Plugins". Allow a few minutes for the plugins to install. 
 
+(screen shot)
+
 For first admin user chose username 'jenkins', full name 'jenkins' and use your own email address. 
 
+(screen shot)
+
 For the 'Instance Configuration' leave at default http://localhost:8080 for the moment. Click 'Save and Finish'. You are now ready to setup Jenkins for the Artenolis configuration.
+
+(screen shot)
 
 
 Setting up Jenkins for Artenolis
@@ -60,7 +67,44 @@ Setting up Jenkins for Artenolis
 
 Artenolis requires the 'Blue Ocean' plugin.  Go to Jenkins -> Manage Jenkins -> Manage Plugins -> Available tab. Search for "Blue Ocean". Install plugin "Blue Ocean" plugin by selecting it and clicking on "Install Now" button. "Blue Ocean" is an aggretate package which loads many sub-plugins. Check the "Restart Jenkins when installation is complete" checkbox to restart Jenkins which will enable the plugin.
 
-After restart a new "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub -> (create access token via link provided), paste access token. Select cobratoolbox project. Create pipeline.
+(screen shot x 2)
+
+After restart a new "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub. If you do not already have a 'personal access token' you can create one by clicking on the link "Create an access token here."  This will open a new tab. Log into github as the bot user. Leave the token options as is. Set the 'note' field to 'artenolis'. Copy the access token, return to the Jenkins browser tab and paste in the access token. If all goes well you will see a list of organizations / repositories belonging to the bot user (if you don't see any you may have to invite the bot user to those organizations).  Select 'opencobra' organization. Select cobratoolbox. Click "Create Pipeline".
+
+
+
+Automatically starting Jenkins on boot
+--------------------------------------
+
+Create file /home/jenkins/jenkins-start.sh and set an execute flag on it with 'chmod a+x jenkins-start.sh'.
+
+.. code-block:: bash
+
+	#!/bin/bash
+	java -jar /home/jenkins/jenkins.war
+
+
+Create file /etc/systemd/system/jenkins:
+
+.. code-block:: bash
+
+	[Unit]
+	Description=Jenkins
+
+	[Service]
+	User=jenkins
+	ExecStart=/home/jenkins/jenkins-start.sh
+
+	[Install]
+	WantedBy=multi-user.target
+
+Now enable the server at boot time:
+
+.. code-block:: bash
+
+	systemctl enable jenkins
+
+Reboot to test the auto-start.
 
 
 Enabling HTTPS for public server
