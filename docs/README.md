@@ -3,7 +3,8 @@
 This procedure has been tested on Ubuntu 18.04. From the 'docs' subdirectory:
 
 ```
-sudo apt install python3-pip
+sudo apt update
+sudo apt install -y git python3-pip
 pip3 install -r requirements.txt
 make html
 ```
