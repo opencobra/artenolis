@@ -161,6 +161,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#setting-up-jenkins-for-artenolis">Setting up Jenkins for Artenolis</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#automatically-starting-jenkins-on-boot">Automatically starting Jenkins on boot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#enabling-https-for-public-server">Enabling HTTPS for public server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#automating-backup-of-jenkins-configuration">Automating backup of Jenkins configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keeping-track-of-important-login-credentials">Keeping track of important login credentials</a></li>
 </ul>
 </li>
 </ul>
@@ -265,17 +267,27 @@ This may also be found at: /home/jenkins/.jenkins/secrets/initialAdminPassword
 <div class="section" id="initial-setup-of-jenkins">
 <h2>Initial setup of Jenkins<a class="headerlink" href="#initial-setup-of-jenkins" title="Permalink to this headline">¶</a></h2>
 <p>Open browser at <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> and enter the admin password when prompted. Choose “Install Suggested Plugins”. Allow a few minutes for the plugins to install.</p>
-<p>(screen shot)</p>
+<a class="reference internal image-reference" href="_images/screenshot_jenkins_setup_2.png"><img alt="ARTENOLIS setup: installing Jenkins plugins 1/2" class="align-center" src="_images/screenshot_jenkins_setup_2.png" style="width: 750px;" /></a>
+<a class="reference internal image-reference" href="_images/screenshot_jenkins_setup_3.png"><img alt="ARTENOLIS setup: installing Jenkins plugins 2/2" class="align-center" src="_images/screenshot_jenkins_setup_3.png" style="width: 750px;" /></a>
 <p>For first admin user chose username ‘jenkins’, full name ‘jenkins’ and use your own email address.</p>
-<p>(screen shot)</p>
+<a class="reference internal image-reference" href="_images/screenshot_jenkins_first_admin_user.png"><img alt="ARTENOLIS setup: creating first admin user" class="align-center" src="_images/screenshot_jenkins_first_admin_user.png" style="width: 750px;" /></a>
 <p>For the ‘Instance Configuration’ leave at default <a class="reference external" href="http://localhost:8080">http://localhost:8080</a> for the moment. Click ‘Save and Finish’. You are now ready to setup Jenkins for the Artenolis configuration.</p>
-<p>(screen shot)</p>
+<a class="reference internal image-reference" href="_images/screenshot_jenkins_instance_config.png"><img alt="ARTENOLIS setup: installing Jenkins instance config" class="align-center" src="_images/screenshot_jenkins_instance_config.png" style="width: 750px;" /></a>
 </div>
 <div class="section" id="setting-up-jenkins-for-artenolis">
 <h2>Setting up Jenkins for Artenolis<a class="headerlink" href="#setting-up-jenkins-for-artenolis" title="Permalink to this headline">¶</a></h2>
-<p>Artenolis requires the ‘Blue Ocean’ plugin.  Go to Jenkins -&gt; Manage Jenkins -&gt; Manage Plugins -&gt; Available tab. Search for “Blue Ocean”. Install plugin “Blue Ocean” plugin by selecting it and clicking on “Install Now” button. “Blue Ocean” is an aggretate package which loads many sub-plugins. Check the “Restart Jenkins when installation is complete” checkbox to restart Jenkins which will enable the plugin.</p>
-<p>(screen shot x 2)</p>
-<p>After restart a new “Open Blue Ocean” menu option will be on the left column menu. Click on this. Then “New Pipeline” -&gt; GitHub. If you do not already have a ‘personal access token’ you can create one by clicking on the link “Create an access token here.”  This will open a new tab. Log into github as the bot user. Leave the token options as is. Set the ‘note’ field to ‘artenolis’. Copy the access token, return to the Jenkins browser tab and paste in the access token. If all goes well you will see a list of organizations / repositories belonging to the bot user (if you don’t see any you may have to invite the bot user to those organizations).  Select ‘opencobra’ organization. Select cobratoolbox. Click “Create Pipeline”.</p>
+<p>Artenolis requires the ‘Blue Ocean’ plugin.  Go to Jenkins -&gt; Manage Jenkins -&gt; Manage Plugins -&gt; Available tab. Search for “Blue Ocean”.</p>
+<a class="reference internal image-reference" href="_images/screenshot_jenkins_blueocean_1_cropped.png"><img alt="ARTENOLIS setup: installing Jenkins Blue Ocean plugin 1/3" class="align-center" src="_images/screenshot_jenkins_blueocean_1_cropped.png" style="width: 750px;" /></a>
+<p>Install plugin “Blue Ocean” aggregate plugin (near the end of the list) by selecting it and clicking on “Install without restart” button.</p>
+<a class="reference internal image-reference" href="_images/screenshot_jenkins_blueocean_2_cropped.png"><img alt="ARTENOLIS setup: installing Jenkins Blue Ocean plugin 2/3" class="align-center" src="_images/screenshot_jenkins_blueocean_2_cropped.png" style="width: 750px;" /></a>
+<p>“Blue Ocean” is an aggretate plugin which loads many sub-plugins. Check the “Restart Jenkins when installation is complete” checkbox to restart Jenkins which will enable the plugin. The installation procedure is likely to take a few minutes. If nothing happens after 5 minutes, try reloading the browser page. If all goes well you will be greeted with the Jenkins login screen.</p>
+<a class="reference internal image-reference" href="_images/screenshot_jenkins_blueocean_3.png"><img alt="ARTENOLIS setup: installing Jenkins Blue Ocean plugin 3/3" class="align-center" src="_images/screenshot_jenkins_blueocean_3.png" style="width: 750px;" /></a>
+<p>Now that the Blue Ocean plugin is install, next step is configuring the multi-pipline tests.
+After restart a new “Open Blue Ocean” menu option will be on the left column menu. Click on this. Next select “New Pipeline”.</p>
+<a class="reference internal image-reference" href="_images/screenshot_jenkins_blueocean_4_cropped.png"><img alt="ARTENOLIS setup: Blue Ocean multi-pipeline" class="align-center" src="_images/screenshot_jenkins_blueocean_4_cropped.png" style="width: 750px;" /></a>
+<p>Select GitHub in response to ‘where do you store your code’. If you do not already have a ‘personal access token’ you can create one by clicking on the link “Create an access token here.”  This will open a new tab. Log into github as the bot user. Leave the token options as is. Set the ‘note’ field to ‘artenolis’.</p>
+<a class="reference internal image-reference" href="_images/screenshot_jenkins_blueocean_5.png"><img alt="ARTENOLIS setup: Blue Ocean multi-pipeline" class="align-center" src="_images/screenshot_jenkins_blueocean_5.png" style="width: 750px;" /></a>
+<p>Copy the access token, return to the Jenkins browser tab and paste in the access token. If all goes well you will see a list of organizations / repositories belonging to the bot user (if you don’t see any you may have to invite the bot user to those organizations).  Select ‘opencobra’ organization. Select cobratoolbox. Click “Create Pipeline”.</p>
 </div>
 <div class="section" id="automatically-starting-jenkins-on-boot">
 <h2>Automatically starting Jenkins on boot<a class="headerlink" href="#automatically-starting-jenkins-on-boot" title="Permalink to this headline">¶</a></h2>
@@ -347,6 +359,41 @@ sudo systemctl restart nginx
 </div>
 <p>Certbot will ask a few questions (eg agreeing to terms and conditions etc). For the final question, choose redirect all traffic to HTTPS (option 2).</p>
 <p>If all goes well Jenkins will be accessable from <a class="reference external" href="https://artenolis.example.com">https://artenolis.example.com</a> (again replace the host name)</p>
+<p>Reference: “Set up Jenkins on Ubuntu 18.04 with LetsEncrypt (HTTPS) using Nginx” <a class="reference external" href="https://medium.com/&#64;kerren_12230/set-up-jenkins-on-ubuntu-18-04-with-letsencrypt-https-using-nginx-7046baa276d9">https://medium.com/&#64;kerren_12230/set-up-jenkins-on-ubuntu-18-04-with-letsencrypt-https-using-nginx-7046baa276d9</a></p>
+</div>
+<div class="section" id="automating-backup-of-jenkins-configuration">
+<h2>Automating backup of Jenkins configuration<a class="headerlink" href="#automating-backup-of-jenkins-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/sue445/jenkins-backup-script.git
+</pre></div>
+</div>
+<p>Backup script</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># Backup Artenolis Jenkins configuration</span>
+<span class="c1"># Uses backup script at https://github.com/sue445/jenkins-backup-script</span>
+<span class="nv">JENKINS_BACKUP</span><span class="o">=</span>/home/vmhadmin/jenkins-backup-script
+<span class="nv">JENKINS_HOME</span><span class="o">=</span>/home/vmhadmin/.jenkins
+<span class="nv">TS</span><span class="o">=</span><span class="sb">`</span>date +%Y%m%d-%H%M<span class="sb">`</span>
+<span class="si">${</span><span class="nv">JENKINS_BACKUP</span><span class="si">}</span>/jenkins-backup.sh <span class="si">${</span><span class="nv">JENKINS_HOME</span><span class="si">}</span> <span class="si">${</span><span class="nv">JENKINS_BACKUP</span><span class="si">}</span>/jenkins-backup-<span class="si">${</span><span class="nv">TS</span><span class="si">}</span>.tar.gz &gt;<span class="p">&amp;</span> <span class="si">${</span><span class="nv">JENKINS_BACKUP</span><span class="si">}</span>/backup.log
+</pre></div>
+</div>
+<p>Add to crontab:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>@daily /home/vmhadmin/scripts/backup-jenkins-config.sh
+</pre></div>
+</div>
+<p>Remark: the bulk of the configuration backup are the optional Jenkins plugins. Without these the configuration is about 20kB.</p>
+</div>
+<div class="section" id="keeping-track-of-important-login-credentials">
+<h2>Keeping track of important login credentials<a class="headerlink" href="#keeping-track-of-important-login-credentials" title="Permalink to this headline">¶</a></h2>
+<p>Maintaining the Artenolis system will require keeping track of several keys and credentials. These must not be stored in a public code repository.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>username / password for the GitHub bot user (cobtratoolboxbot)</p></li>
+<li><p>personal access token for GitHub bot user</p></li>
+<li><p>associated email address linked to the GitHub bot user (<a class="reference external" href="mailto:cobtratoolboxbot&#37;&#52;&#48;gmail&#46;com">cobtratoolboxbot<span>&#64;</span>gmail<span>&#46;</span>com</a>)</p></li>
+<li><p>username / password of jenkins user of server</p></li>
+<li><p>username / password of admin user of server</p></li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 
