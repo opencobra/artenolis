@@ -51,25 +51,72 @@ Initial setup of Jenkins
 
 Open browser at http://localhost:8080 and enter the admin password when prompted. Choose "Install Suggested Plugins". Allow a few minutes for the plugins to install. 
 
-(screen shot)
-
+.. image:: _static/img/screenshot_jenkins_setup_2.png
+   :width: 750 px
+   :alt: ARTENOLIS setup: installing Jenkins plugins 1/2
+   :align: center
+   
+.. image:: _static/img/screenshot_jenkins_setup_3.png
+   :width: 750 px
+   :alt: ARTENOLIS setup: installing Jenkins plugins 2/2
+   :align: center
+   
 For first admin user chose username 'jenkins', full name 'jenkins' and use your own email address. 
 
-(screen shot)
-
+.. image:: _static/img/screenshot_jenkins_first_admin_user.png
+   :width: 750 px
+   :alt: ARTENOLIS setup: creating first admin user
+   :align: center
+   
 For the 'Instance Configuration' leave at default http://localhost:8080 for the moment. Click 'Save and Finish'. You are now ready to setup Jenkins for the Artenolis configuration.
 
-(screen shot)
+.. image:: _static/img/screenshot_jenkins_instance_config.png
+   :width: 750 px
+   :alt: ARTENOLIS setup: installing Jenkins instance config
+   :align: center
 
 
 Setting up Jenkins for Artenolis
 --------------------------------
 
-Artenolis requires the 'Blue Ocean' plugin.  Go to Jenkins -> Manage Jenkins -> Manage Plugins -> Available tab. Search for "Blue Ocean". Install plugin "Blue Ocean" plugin by selecting it and clicking on "Install Now" button. "Blue Ocean" is an aggretate package which loads many sub-plugins. Check the "Restart Jenkins when installation is complete" checkbox to restart Jenkins which will enable the plugin.
+Artenolis requires the 'Blue Ocean' plugin.  Go to Jenkins -> Manage Jenkins -> Manage Plugins -> Available tab. Search for "Blue Ocean". 
 
-(screen shot x 2)
+.. image:: _static/img/screenshot_jenkins_blueocean_1_cropped.png
+   :width: 750 px
+   :alt: ARTENOLIS setup: installing Jenkins Blue Ocean plugin 1/3
+   :align: center
 
-After restart a new "Open Blue Ocean" menu option will be on the left column menu. Click on this. Then "New Pipeline" -> GitHub. If you do not already have a 'personal access token' you can create one by clicking on the link "Create an access token here."  This will open a new tab. Log into github as the bot user. Leave the token options as is. Set the 'note' field to 'artenolis'. Copy the access token, return to the Jenkins browser tab and paste in the access token. If all goes well you will see a list of organizations / repositories belonging to the bot user (if you don't see any you may have to invite the bot user to those organizations).  Select 'opencobra' organization. Select cobratoolbox. Click "Create Pipeline".
+Install plugin "Blue Ocean" aggregate plugin (near the end of the list) by selecting it and clicking on "Install without restart" button.
+
+.. image:: _static/img/screenshot_jenkins_blueocean_2_cropped.png
+   :width: 750 px
+   :alt: ARTENOLIS setup: installing Jenkins Blue Ocean plugin 2/3
+   :align: center
+
+"Blue Ocean" is an aggretate plugin which loads many sub-plugins. Check the "Restart Jenkins when installation is complete" checkbox to restart Jenkins which will enable the plugin. The installation procedure is likely to take a few minutes. If nothing happens after 5 minutes, try reloading the browser page. If all goes well you will be greeted with the Jenkins login screen.
+
+.. image:: _static/img/screenshot_jenkins_blueocean_3.png
+   :width: 750 px
+   :alt: ARTENOLIS setup: installing Jenkins Blue Ocean plugin 3/3
+   :align: center
+
+
+Now that the Blue Ocean plugin is install, next step is configuring the multi-pipline tests.
+After restart a new "Open Blue Ocean" menu option will be on the left column menu. Click on this. Next select "New Pipeline".
+
+.. image:: _static/img/screenshot_jenkins_blueocean_4_cropped.png
+   :width: 750 px
+   :alt: ARTENOLIS setup: Blue Ocean multi-pipeline
+   :align: center
+   
+Select GitHub in response to 'where do you store your code'. If you do not already have a 'personal access token' you can create one by clicking on the link "Create an access token here."  This will open a new tab. Log into github as the bot user. Leave the token options as is. Set the 'note' field to 'artenolis'.
+
+.. image:: _static/img/screenshot_jenkins_blueocean_5.png
+   :width: 750 px
+   :alt: ARTENOLIS setup: Blue Ocean multi-pipeline
+   :align: center
+   
+Copy the access token, return to the Jenkins browser tab and paste in the access token. If all goes well you will see a list of organizations / repositories belonging to the bot user (if you don't see any you may have to invite the bot user to those organizations).  Select 'opencobra' organization. Select cobratoolbox. Click "Create Pipeline".
 
 
 
