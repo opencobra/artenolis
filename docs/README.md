@@ -1,15 +1,21 @@
 # Building Artenolis Documentation
 
-This procedure has been tested on Ubuntu 18.04. From the 'docs' subdirectory:
+## Building documentation with Docker
+
+From the ./docs directory build a docker image:
 
 ```
-sudo apt update
-sudo apt install -y git python3-pip
-pip3 install -r requirements.txt
-make html
+docker build -t opencobra/artenolis-docs .
 ```
 
-Output HTML documentation will be in directory ./build/html
+Run run and build the docs (with output going into /var/tmp):
+
+```
+docker run --rm -it --volume /var/tmp:/output  opencobra/artenolis-docs
+```
+
+
+## Publishing updated documentation
 
 To publish the updated documentation on the Artenolis website at 
 https://opencobra.github.io/artenolis/stable/
