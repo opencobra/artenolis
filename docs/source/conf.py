@@ -154,7 +154,9 @@ html_context = {'conf_py_path': os.path.join(os.sep, 'docs', 'source', ''),
                 'manifest': 'json/manifest.json',
                 'browserconfig': 'browserconfig.xml',
                 'theme_logo_only': True,
-                'show_source': False}
+                'show_source': False,
+                'project_logo_url': 'https://raw.githubusercontent.com/opencobra/artenolis/master/docs/source/_static/img/logo_artenolis.png',
+                'project_logo_alt_text': 'artenolis logo' }
 #                'display_github': True}
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
